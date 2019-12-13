@@ -26,6 +26,45 @@ Como respuesta obtendrás el **token**:
 }
 ```
 
-Con el **token** generado, ya puedes autenticarte en nuestras APIs para generar tu(s) **pointsOfSales**. 
+Para disminuir el uso de tus credenciales, y con esto aumentar la seguridad en las llamadas a nuestras APIs debes llamar al **idToken** a partir del **token** generado en el paso anterior.
 
+Generar **idToken**:
+
+```
+curl -X POST \
+  https://chek-payments-engine-staging.heypay.cl/idTokens \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 911' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: chek-payments-engine-staging.heypay.cl' \
+  -H 'Postman-Token: b2a0ca15-3c39-4058-8e1d-2e196a69ca5e,c32273d0-525d-4c33-87d3-8f6922c89300' \
+  -d '{
+	"token":"TOKEN"
+```
+
+Obtendrás como respuesta:
+
+```
+{
+    "idToken": "ID_TOKEN",
+    "refreshToken": "REFRESH_TOKEN",
+    "expiresIn": 3600
+}
+```
+Con este **idToken** podrás autenticarte en todas nuestras APIs.
+
+
+Para evitar recurrencia en la generación del **idToken**, puedes refrescarlo constantemente llamando al **refreshToken** así:
+
+```
+curl -X POST \
+  https://chek-payments-engine-staging.heypay.cl/refreshTokens \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"refreshToken":"REFRESH_TOKEN"
+}'
+```
 Ir al paso [2. Generar Punto(s) de venta](point-of-sales.md)
