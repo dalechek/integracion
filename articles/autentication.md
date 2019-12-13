@@ -69,9 +69,9 @@ curl -X POST \
 ```
 Recursos
 
-|Método |R |Atributo | Tipo | Descripción |
-|POST | Request | apiKey | string | Api key del comercio |
-
+| Método   | Definición | Atributo | Tipo   | Descripción         |
+| -------- | ---------- |--------- |------- |-------------------- |
+| POST     | Request    | apiKey   | string |Api key del comercio |
 
 commerceId
 string
