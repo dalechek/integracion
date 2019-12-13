@@ -1,4 +1,4 @@
-## 3. Gernerar Cobros (Charges)
+## 3. Generar Cobros (Charges)
 A la hora de crear un cobro con QR es necesario definir el monto (amount), el mensaje (message), si se aceptan múltiples pagos (acceptsMultiplePayments), y si el QR es para múltiples ventas (keepAlive). En el caso de que el monto se envíe vacío, el cliente lo deberá ingresar a la hora de pagar.
 Para el cobro remoto es necesario enviar el identificador del usuario, el monto y el mensaje. Solo el mensaje es opcional.
 Si se requiere agregar información adicional al cobro se puede hacer a través del campo additionalData, el cual debe ser un JSON. Tener en cuenta que el cliente tendrá acceso a esta información.
@@ -56,12 +56,12 @@ Obtendrás como respuesta:
     "keepAlive": false,
     "createdAt": "2019-12-13T03:23:42.872Z",
     "requestTip": false,
-    "fromAccountId": "1EOdUnDgDvdutRzKGgUN",
+    "fromAccountId": "CUENTA_DEL_CLIENTE",
     "voidIn": 360000,
     "updatedAt": "2019-12-13T03:23:42.872Z",
-    "pointOfSalesId": null,
+    "pointOfSalesId": "ID_DEL_PUNTO_DE_VENTA",
     "acceptsMultiplePayments": false,
-    "commerceId": "EtEfVa6A4ZuLB6Go9bDO",
+    "commerceId": "ID_DEL_COMERCIO",
     "amount": 4990,
     "type": "ftf",
     "isAuthorization": false,
@@ -78,13 +78,13 @@ Obtendrás como respuesta:
     "voidedAt": null,
     "rejectedAt": null,
     "requesterInfo": {
-        "name": "Ripley",
-        "type": "commerce"
+        "name": "Prueba",
+        "type": "Cpmercio"
     },
     "authorizedAt": null,
     "authorizationId": null,
     "paymentId": null,
-    "onCreateEventId": "3b471bc0-1f67-4d3b-b96d-92c2e75144f4-0",
+    "onCreateEventId": "Identificador",
     "transactionId": null
 }
 ```
