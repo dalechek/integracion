@@ -67,7 +67,8 @@ curl -X POST \
 	"refreshToken":"REFRESH_TOKEN"
 }'
 ```
-> Recursos 
+Recursos
+
 |Método |R |Atributo | Tipo | Descripción |
 |POST | Request | apiKey | string | Api key del comercio |
 
