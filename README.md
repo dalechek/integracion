@@ -5,4 +5,6 @@ Para integrar nuestro medio de pago en tu comercio solo tienes que seguir estos 
 
 - [Autenticación](articles/autentication.md)
 
-- [Puntos de Venta](articles/points-of-sale.md)
+- [Generar Punto(s) de Venta](articles/points-of-sale.md)
+
+- [Generar cargos (charge)](articles/charges.md)
