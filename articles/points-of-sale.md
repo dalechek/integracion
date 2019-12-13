@@ -25,4 +25,4 @@ Como respuesta obtendrás el **id** del punto de venta y la url con la que podra
     "resource": "https://chek-payments-engine-staging.heypay.cl/pointsOfSales/5QEkVOY3iHsPWGvK5xRU"
 }
 ```
-Ir al paso [3. Generar cargos (charge)](charge.md)
+Ir al paso [3. Generar cargos (charges)](charge.md)
