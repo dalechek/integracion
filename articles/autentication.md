@@ -72,17 +72,9 @@ Recursos
 | Método   | Definición | Atributo | Tipo   | Descripción         |
 | -------- | ---------- |--------- |------- |-------------------- |
 | POST     | Request    | apiKey   | string |Api key del comercio |
-
-commerceId
-string
-Identificador del comercio.
-readOnly
-boolean
-Si brindar solo permisos de lectura a los idTokens generados por el token a crear. El valor por defecto es false.
-Response
-token
-string
-Token que permite autentificarse en la API.
+|       |      |    commerceId | string |Identificador del comercio |
+|       |      |    readOnly | boolean | Si brindar solo permisos de lectura a los idTokens generados por el token a crear. El valor por defecto es false |
+|      | Response    | token   | string |Token que permite autentificarse en la API. |
 
 
 Ir al paso [2. Generar Punto(s) de venta](points-of-sale.md)
