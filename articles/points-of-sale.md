@@ -1,7 +1,7 @@
 ## 2. Generar punto(s) de venta
 Para ciertas situaciones es necesaria la generación de un cobro para cada venta manteniendo el mismo QR. A esto le llamamos puntos de venta, estos pueden ser utilizados en comercios con múltiples cajas de pago.
 
-Con el idToken generado en el paso 1 [Autenticación](autentication.md) debemos crear el punto de venta para crear cobros relacionados a él. El único campo obligatorio es el nombre (name). Si se desea agregar informacional adicional se puede hacer a través del campo additionalData, el cual debe ser un JSON. A diferencia de los cobros, los clientes no tendrán acceso a esta información.
+Con el idToken generado en el [paso 1](autentication.md) debemos crear el punto de venta para crear cobros relacionados a él. El único campo obligatorio es el nombre (name). Si se desea agregar informacional adicional se puede hacer a través del campo additionalData, el cual debe ser un JSON. A diferencia de los cobros, los clientes no tendrán acceso a esta información.
 
 ```
 curl -X POST \
