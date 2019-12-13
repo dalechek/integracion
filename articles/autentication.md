@@ -56,7 +56,7 @@ Obtendrás como respuesta:
 Con este **idToken** podrás autenticarte en todas nuestras APIs.
 
 
-Para evitar recurrencia en la generación del **idToken**, puedes refrescarlo constantemente llamando al **refreshToken** así:
+> Si deseas evitar recurrencia en la generación del **idToken**, puedes refrescarlo constantemente llamando al **refreshToken** así:
 
 ```
 curl -X POST \
