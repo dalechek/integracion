@@ -67,4 +67,4 @@ curl -X POST \
 	"refreshToken":"REFRESH_TOKEN"
 }'
 ```
-Ir al paso [2. Generar Punto(s) de venta](points-of-sales.md)
+Ir al paso [2. Generar Punto(s) de venta](points-of-sale.md)
