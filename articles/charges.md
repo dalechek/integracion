@@ -97,6 +97,6 @@ Los posibles estados de la transacción hasta este punto:
 | voided | El cargo ha sido reversado porque se ha cumplido el tiempo parametrizado en el **voidIn**  |
 
 
-Si deseas hacer un reembolso al cliente, debes llamar al [refund](refund.md).
+Si deseas hacer un reembolso al cliente, debes llamar al [refund](refund.md) o si deseas generar una reversa tecnica puedes llamar al [void](void.md).
 
 
