@@ -2,7 +2,7 @@
 
 Una vez completes el registro de tu Comercio, te entregaremos credenciales para que te puedas autenticar en el sistema:
 
-"commerceId" y "apiKey"
+**"commerceId"** y **"apiKey"**
 
 Con estas podrás llamar a la API **tokens** así:
 
