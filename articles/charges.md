@@ -1,0 +1,102 @@
+## 3. Gernerar Cobros (Charges)
+A la hora de crear un cobro con QR es necesario definir el monto (amount), el mensaje (message), si se aceptan múltiples pagos (acceptsMultiplePayments), y si el QR es para múltiples ventas (keepAlive). En el caso de que el monto se envíe vacío, el cliente lo deberá ingresar a la hora de pagar.
+Para el cobro remoto es necesario enviar el identificador del usuario, el monto y el mensaje. Solo el mensaje es opcional.
+Si se requiere agregar información adicional al cobro se puede hacer a través del campo additionalData, el cual debe ser un JSON. Tener en cuenta que el cliente tendrá acceso a esta información.
+
+Para generar un **charge** debes enviar:
+
+```
+curl -X POST \
+  https://chek-payments-engine-staging.heypay.cl/charges \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Authorization: Bearer ID_TOKEN' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 161' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: chek-payments-engine-staging.heypay.cl' \
+  -d '{
+	"currency": "CLP",
+	"isAuthorization": false,
+	"pointOfSaleId": "ID_DEL_PUNTO_DE_VENTA",
+	"message": "Compra en comercio",
+	"voidIn": 360000,
+	"amount": 4990
+}'
+```
+Obtendrás como respuesta:
+
+```
+{
+    "id": "ID_DEL_CARGO",
+    "resource": "https://chek-accounts-engine-staging.heypay.cl/charges/ID_DEL_CARGO"
+}
+```
+
+### Consultar estado del **charge**
+
+Para verificar el estado de la transacción debes:
+
+```
+curl -X GET \
+  https://chek-payments-engine-staging.heypay.cl/charges/ID_DEL_CARGO \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Authorization: Bearer ID_TOKEN' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Host: chek-payments-engine-staging.heypay.cl' \
+```
+Obtendrás como respuesta:
+```
+{
+    "status": "pending",
+    "redirectFromPointOfSales": false,
+    "keepAlive": false,
+    "createdAt": "2019-12-13T03:23:42.872Z",
+    "requestTip": false,
+    "fromAccountId": "1EOdUnDgDvdutRzKGgUN",
+    "voidIn": 360000,
+    "updatedAt": "2019-12-13T03:23:42.872Z",
+    "pointOfSalesId": null,
+    "acceptsMultiplePayments": false,
+    "commerceId": "EtEfVa6A4ZuLB6Go9bDO",
+    "amount": 4990,
+    "type": "ftf",
+    "isAuthorization": false,
+    "toAccountId": null,
+    "additionalData": null,
+    "message": "Compra en comercio",
+    "payedAt": null,
+    "capturedAt": null,
+    "scheduledVoidAt": "2019-12-13T03:29:42.840Z",
+    "payerInfo": null,
+    "voidId": null,
+    "onUpdateCallback": "https://chek-payments-engine-staging.heypay.cl/chargeUpdates",
+    "currency": "CLP",
+    "voidedAt": null,
+    "rejectedAt": null,
+    "requesterInfo": {
+        "name": "Ripley",
+        "type": "commerce"
+    },
+    "authorizedAt": null,
+    "authorizationId": null,
+    "paymentId": null,
+    "onCreateEventId": "3b471bc0-1f67-4d3b-b96d-92c2e75144f4-0",
+    "transactionId": null
+}
+```
+Los posibles estados de la transacción hasta este punto:
+  
+| Status    | Definición                               |
+| -------- | ---------------------------------------- |
+| done  | El cargo fue realizado exitosamente en la cuenta Chek del cliente |
+| pending | El cargo no ha sido confirmado por el cliente desde su app |
+| voided | El cargo ha sido reversado porque se ha cumplido el tiempo parametrizado en el **voidIn**  |
+
+
+Si deseas hacer un reembolso al cliente, debes llamar al [refund](refund.md).
+
+
