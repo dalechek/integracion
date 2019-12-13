@@ -36,7 +36,7 @@ Obtendrás como respuesta:
 
 ### Consultar estado del **charge**
 
-Para verificar el estado de la transacción debes:
+Luego que se crea el cobro se deberá consultar su estado múltiples veces hasta que el cliente realice el pago. Para verificar el estado de la transacción debes:
 
 ```
 curl -X GET \
@@ -88,13 +88,17 @@ Obtendrás como respuesta:
     "transactionId": null
 }
 ```
-Los posibles estados de la transacción hasta este punto:
+Al realizarse el pago, el identificador y la fecha del pago quedan guardados en el cobro. Con el identificador del pago se puede consultar la información respectiva a éste tales como la cuenta de origen y el perfil del cliente. En el caso que el cobro haya sido con el monto a definir por el cliente, este también se guardará en el cobro en el campo amount.
+
+Los posibles estados de la transacción son:
   
 | Status    | Definición                               |
 | -------- | ---------------------------------------- |
 | done  | El cargo fue realizado exitosamente en la cuenta Chek del cliente |
 | pending | El cargo no ha sido confirmado por el cliente desde su app |
 | voided | El cargo ha sido reversado porque se ha cumplido el tiempo parametrizado en el **voidIn**  |
+| rejected | El cliente rechazó el cargo  |
+| failed | Hubo un error al pagar |
 
 
 Si deseas hacer un reembolso al cliente, debes llamar al [Reembolso (refund)](refund.md) o si deseas generar una reversa tecnica puedes llamar a la [Reversa (void)](void.md).
