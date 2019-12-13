@@ -1,4 +1,4 @@
-## 1. Obtener un Token de Acceso
+## 1. Autenticación
 
 Una vez completes el registro de tu Comercio, te entregaremos credenciales para que te puedas autenticar en el sistema:
 
@@ -26,7 +26,7 @@ Como respuesta obtendrás el **token**:
 }
 ```
 
-## Para disminuir el uso de tus credenciales, y con esto aumentar la seguridad en las llamadas a nuestras APIs debes llamar al **idToken** a partir del **token** generado en el paso anterior.
+### Para disminuir el uso de tus credenciales, y con esto aumentar la seguridad en las llamadas a nuestras APIs debes llamar al **idToken** a partir del **token** generado en el paso anterior.
 
 Generar **idToken**:
 
