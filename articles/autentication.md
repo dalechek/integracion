@@ -67,7 +67,7 @@ curl -X POST \
 	"refreshToken":"REFRESH_TOKEN"
 }'
 ```
-Recursos
+### Recursos
 
 | Método   | Definición | Atributo | Tipo   | Descripción         |
 | -------- | ---------- |--------- |------- |-------------------- |
