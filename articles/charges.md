@@ -88,6 +88,20 @@ Obtendrás como respuesta:
     "transactionId": null
 }
 ```
+Descripción de los campos:
+  
+| Atributo | Tipo | Definición                               |
+| -------- | ---- | ---------------------------------------- |
+| acceptsMultiplePayments  | boolean | Acepta múltiples pagos por venta? El valor por defecto es false |
+| amount | number |  Monto a cobrar. Si se deja vacío, permite que el cliente ingrese al pagar o autorizar |
+| isAuthorization | boolean | Permite autorización directa o captura de fondos para autorización posterior. El valor por defecto es false |
+| message | string | El asunto del cobro. Si se deja vacío, permite que el cliente lo ingrese al pagar o autorizar  |
+| pointOfSalesId | Tipo | Identificador del punto de venta asociado al cobro |
+| keepAlive | boolean | Permite el múltiples ventas sobre el mismo cargo. El valor por defecto es false.  |
+| userPhoneNumber | string | Número de teléfono del usuario a cobrar en caso de realizar un cobro remoto. Ej: +56973981014 |
+| voidIn | number | Milisegundos que deben pasar desde su creación para ser automáticamente anulado en caso que no se haya pagado (aunque esté autorizado). Su valor por defecto es 300000 (5 minutos). Si se envía null el cobro no se anulará automáticamente.  |
+| keepAlive | boolean | Permite el múltiples ventas sobre el mismo cargo. El valor por defecto es false.  |
+
 Al realizarse el pago, el identificador y la fecha del pago quedan guardados en el cobro. Con el identificador del pago se puede consultar la información respectiva a éste tales como la cuenta de origen y el perfil del cliente. En el caso que el cobro haya sido con el monto a definir por el cliente, este también se guardará en el cobro en el campo amount.
 
 Los posibles estados de la transacción son:
